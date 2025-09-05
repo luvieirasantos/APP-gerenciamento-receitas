@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingListItem } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 interface ShoppingListCardProps {
@@ -23,7 +24,7 @@ export function ShoppingListCard({ item }: ShoppingListCardProps) {
         <div className="flex items-start gap-3">
           <Checkbox
             checked={checked}
-            onCheckedChange={setChecked}
+            onCheckedChange={(checked) => setChecked(checked === true)}
             className="mt-1"
           />
           

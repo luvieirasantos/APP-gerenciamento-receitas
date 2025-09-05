@@ -24,17 +24,19 @@ export default function ShoppingListPage() {
     const recipesWithServings: Array<{ recipe: any; servings: number }> = [];
     
     menu.days.forEach(day => {
-      day.meals.forEach(meal => {
-        meal.items.forEach(item => {
-          if (item.recipeId) {
-            const recipe = recipes.find(r => r.id === item.recipeId);
-            if (recipe) {
-              recipesWithServings.push({
-                recipe,
-                servings: recipe.servings, // Could be customized per menu item
-              });
+      day.categories.forEach(category => {
+        category.subcategories.forEach(subcategory => {
+          subcategory.items.forEach(item => {
+            if (item.recipeId) {
+              const recipe = recipes.find(r => r.id === item.recipeId);
+              if (recipe) {
+                recipesWithServings.push({
+                  recipe,
+                  servings: recipe.servings, // Could be customized per menu item
+                });
+              }
             }
-          }
+          });
         });
       });
     });

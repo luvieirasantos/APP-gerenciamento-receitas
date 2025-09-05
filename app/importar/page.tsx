@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label';
 import { Header } from '@/components/layout/Header';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Badge } from '@/components/ui/badge';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 
 type ImportStep = 'upload' | 'mapping' | 'preview' | 'complete';
 
@@ -277,18 +279,6 @@ export default function ImportPage() {
           </Card>
         )}
 
-        {/* Empty State for No Menus */}
-        {menus.length === 0 && currentStep === 'upload' && (
-          <Card className="bg-blue-50 border-blue-200">
-            <CardContent className="p-6 text-center">
-              <p className="text-blue-800 font-medium mb-2">💡 Dica</p>
-              <p className="text-blue-700 text-sm">
-                Você ainda não tem cardápios salvos. Após importar, você poderá visualizar
-                e editar os dados importados na seção de cardápios.
-              </p>
-            </CardContent>
-          </Card>
-        )}
       </main>
       
       <BottomNav />

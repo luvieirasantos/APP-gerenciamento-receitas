@@ -12,13 +12,13 @@ import {
   Settings
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { KitchenTimer } from '@/components/recipe/KitchenTimer';
 import { useStore } from '@/lib/store';
-import { scaleIngredients } from '@/lib/utils';
+import { scaleIngredients, cn } from '@/lib/utils';
 import Link from 'next/link';
 
 export default function KitchenModePage() {

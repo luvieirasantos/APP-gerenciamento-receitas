@@ -23,23 +23,30 @@ export function MenuDayCard({ day, onAddMeal }: MenuDayCardProps) {
       </CardHeader>
       
       <CardContent className="space-y-4">
-        {day.meals.map((meal, mealIndex) => (
-          <div key={mealIndex} className="space-y-2">
-            <h4 className="font-medium text-primary">{meal.mealName}</h4>
+        {day.categories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="space-y-2">
+            <h4 className="font-medium text-primary">{category.name}</h4>
             <div className="space-y-2 pl-2">
-              {meal.items.map((item, itemIndex) => (
-                <div key={itemIndex} className="flex items-center justify-between rounded-md bg-muted p-2">
-                  <div>
-                    <span className="text-sm font-medium">
-                      {item.customText || 'Receita'}
-                    </span>
-                    {item.note && (
-                      <p className="text-xs text-muted-foreground">{item.note}</p>
-                    )}
+              {category.subcategories.map((subcategory, subcategoryIndex) => (
+                <div key={subcategoryIndex} className="space-y-1">
+                  <h5 className="text-sm font-medium text-muted-foreground">{subcategory.name}</h5>
+                  <div className="space-y-1 pl-2">
+                    {subcategory.items.map((item, itemIndex) => (
+                      <div key={itemIndex} className="flex items-center justify-between rounded-md bg-muted p-2">
+                        <div>
+                          <span className="text-sm font-medium">
+                            {item.customText || 'Receita'}
+                          </span>
+                          {item.note && (
+                            <p className="text-xs text-muted-foreground">{item.note}</p>
+                          )}
+                        </div>
+                        {item.recipeId && (
+                          <Badge variant="outline">Receita</Badge>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                  {item.recipeId && (
-                    <Badge variant="outline">Receita</Badge>
-                  )}
                 </div>
               ))}
             </div>
